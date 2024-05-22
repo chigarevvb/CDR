@@ -1,0 +1,30 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: study.rebrainme.com
+spec:
+  group: rebrainme.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                taskName:
+                  type: string
+                taskDescription:
+                  type: string
+                taskScore:
+                  type: integer
+  scope: Namespaced
+  names:
+    plural: study
+    singular: study
+    kind: Study
+    shortNames:
+    - ts
